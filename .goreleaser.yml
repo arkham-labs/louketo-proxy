@@ -31,7 +31,7 @@ checksum:
   algorithm: sha512
 # Generate the changelog to be included into the release notes
 changelog:
-  sort: asc
+  sort: desc
   filters:
     # Exclude commit messages matching the regex listed below
     exclude:
