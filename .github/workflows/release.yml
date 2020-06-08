@@ -23,6 +23,10 @@ jobs:
       # Run tests prior to release    
       - name: Test
         run: make test
+      - name: set previous release tag for goreleaser
+        shell: bash
+        run: |
+          echo ::set-env name=GORELEASER_PREVIOUS_TAG::$(curl --silent "https://api.github.com/repos/louketo/louketo-proxy/tags" | jq -r '.[0].name')
       # Publish the binaries
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
